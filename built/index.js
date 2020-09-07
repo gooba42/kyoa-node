@@ -1,9 +1,10 @@
 "use strict";
 /**
  * Title: KYOA (Kid Your Own Adventure) - Node Edition
- * Desc: Kid Your Own Adventure is an RPG engine built to power a kids' storytelling game
- * It was originally started in Python but I'm writing JavaScript for work and
- * thought I could benefit from the practice porting it over to Node.JS.
+ * Desc: Kid Your Own Adventure is an RPG engine built to power a kids'
+ * storytelling game. It was originally started in Python but I'm writing
+ * JavaScript for work and thought I could benefit from the practice porting it
+ * over to Node.JS.
  *
  * Author: Kyle Turpin
  * License - GPL V2
@@ -95,8 +96,34 @@ class deity extends character {
         this.skillDice = [12, 20, 24];
     }
 }
+class challenge {
+    constructor(theDescription, difficulty, theProtagonist) {
+        this.description = theDescription;
+        switch (difficulty) {
+            case 0:
+                //Worst
+                this.skill = theProtagonist.worst;
+                break;
+            case 1:
+                //Middling
+                this.skill = theProtagonist.middling;
+                break;
+            case 2:
+                //Best
+                this.skill = theProtagonist.best;
+                break;
+            default:
+                this.skill = "Singing";
+        }
+    }
+}
 function main() {
+    let D3 = new game_die(3);
     let chunky = new mortal("Chunky", "Cooking", "Dancing", "Singing");
-    console.log(`Name: ${chunky.name}\n${chunky.best} Roll: ${chunky.roll("best")}\n${chunky.middling} Roll: ${chunky.roll("middling")}\n${chunky.worst} Roll: ${chunky.roll("worst")}`);
+    let encounter = new challenge(`An old man sits quietly by himself and at your approach he leaps to his feet and challenges ${chunky.name} to a duel of`, (D3.roll() - 1), chunky);
+    console.log(`${encounter.description} ${encounter.skill.toLowerCase()}!`);
+    console.log(D3.roll() - 1);
+    console.log(D3.roll() - 1);
+    console.log(D3.roll() - 1);
 }
 main();
