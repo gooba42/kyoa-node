@@ -1,0 +1,29 @@
+{
+  "name": "kyoa-node",
+  "version": "1.0.0",
+  "description": "Simple RPG Engine in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gooba42/kyoa-node.git"
+  },
+  "keywords": [
+    "rpg",
+    "kids",
+    "nodejs"
+  ],
+  "author": "Kyle J Turpin",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/gooba42/kyoa-node/issues"
+  },
+  "homepage": "https://github.com/gooba42/kyoa-node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "typescript": "^4.0.2"
+  }
+}
